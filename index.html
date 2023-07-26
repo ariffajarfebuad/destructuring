@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product List</title>
+</head>
+<body>
+  <div id="productListContainer">
+    <!-- Hasil akan ditampilkan di sini -->
+  </div>
+
+  <script>
+    // Data list product (array of objects)
+    const productList = [
+      {
+        id: 1,
+        name: "Laptop",
+        price: 20000000,
+        category: "Electronics",
+      },
+      {
+        id: 2,
+        name: "Smartphone",
+        price: 5000000,
+        category: "Electronics",
+      },
+      {
+        id: 3,
+        name: "casehp",
+        price: 25000,
+        category: "Acesssoris",
+      },
+    ];
+
+    // Function menggunakan destructuring dan alias
+    function printProductInfo({ id, name: productName, price }) {
+      return `
+        <p>Product ID: ${id}</p>
+        <p>Product Name: ${productName}</p>
+        <p>Product Price: $${price}</p>
+        <hr />
+      `;
+    }
+
+    // Ambil kontainer untuk menampilkan hasil
+    const productListContainer = document.getElementById("productListContainer");
+
+    // Tampilkan informasi produk dalam kontainer
+    productList.forEach((product) => {
+      const productInfoHTML = printProductInfo(product);
+      productListContainer.innerHTML += productInfoHTML;
+    });
+  </script>
+</body>
+</html>
